@@ -8,7 +8,8 @@ namespace lab_3
         public int price_tea = 15;
         public int price_cacao = 17;
         public int price_chocolate = 20;
-        TimeSpan totalTime;//=new TimeSpan(0,0,1,0);
+
+        TimeSpan totalTime;
         TimeSpan coffee_time = new TimeSpan(0, 0, 1, 5);
         TimeSpan tea_time = new TimeSpan(0, 0, 1, 10);
         TimeSpan cacao_time = new TimeSpan(0, 0, 1, 25);
