@@ -15,6 +15,7 @@ namespace lab_3
         TimeSpan cacao_time = new TimeSpan(0, 0, 1, 25);
         TimeSpan chocolate_time = new TimeSpan(0, 0, 1, 45);
         DateTime date;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +24,16 @@ namespace lab_3
         private void Form1_Load(object sender, EventArgs e)
         {
             drink_choice.BackColor = Color.Green;
-
+            //////////////////////////////////////
+            using var db = new MachineContext();
+            Console.WriteLine($"DB Path :{db.DbPath}");
+            Console.WriteLine("Adding Drink");
+            var drink = new Drink
+            {
+                Name_Drink = "11111"
+            };
+            db.Add(drink);
+            db.SaveChanges();
         }
 
         private void coffee_button_Click(object sender, EventArgs e)

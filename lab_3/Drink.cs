@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab_3
 {
-    public class Drinks
+    public class Drink
     {
         public int DrinkId { get; set; }
 
