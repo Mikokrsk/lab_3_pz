@@ -63,16 +63,17 @@
             this.check_button = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.drink_id = new System.Windows.Forms.TextBox();
+            this.drink_name = new System.Windows.Forms.TextBox();
+            this.drink_portion = new System.Windows.Forms.TextBox();
+            this.drink_price = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.add_drink_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -427,37 +428,37 @@
             this.label2.TabIndex = 33;
             this.label2.Text = "Чек";
             // 
-            // textBox1
+            // drink_id
             // 
-            this.textBox1.Location = new System.Drawing.Point(1137, 146);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 34;
+            this.drink_id.Location = new System.Drawing.Point(1137, 146);
+            this.drink_id.Name = "drink_id";
+            this.drink_id.Size = new System.Drawing.Size(125, 27);
+            this.drink_id.TabIndex = 34;
             // 
-            // textBox2
+            // drink_name
             // 
-            this.textBox2.Location = new System.Drawing.Point(1268, 146);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 35;
+            this.drink_name.Location = new System.Drawing.Point(1268, 146);
+            this.drink_name.Name = "drink_name";
+            this.drink_name.Size = new System.Drawing.Size(125, 27);
+            this.drink_name.TabIndex = 35;
             // 
-            // textBox3
+            // drink_portion
             // 
-            this.textBox3.Location = new System.Drawing.Point(1399, 146);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 27);
-            this.textBox3.TabIndex = 36;
+            this.drink_portion.Location = new System.Drawing.Point(1399, 146);
+            this.drink_portion.Name = "drink_portion";
+            this.drink_portion.Size = new System.Drawing.Size(125, 27);
+            this.drink_portion.TabIndex = 36;
             // 
-            // textBox4
+            // drink_price
             // 
-            this.textBox4.Location = new System.Drawing.Point(1530, 146);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 27);
-            this.textBox4.TabIndex = 37;
+            this.drink_price.Location = new System.Drawing.Point(1530, 146);
+            this.drink_price.Name = "drink_price";
+            this.drink_price.Size = new System.Drawing.Size(125, 27);
+            this.drink_price.TabIndex = 37;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(1661, 146);
+            this.textBox5.Location = new System.Drawing.Point(1137, 316);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(125, 27);
             this.textBox5.TabIndex = 38;
@@ -474,54 +475,65 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1281, 95);
+            this.label4.Location = new System.Drawing.Point(1305, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 20);
+            this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 40;
-            this.label4.Text = "назва напою";
+            this.label4.Text = "Назва";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1415, 95);
+            this.label5.Location = new System.Drawing.Point(1424, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 20);
+            this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 41;
-            this.label5.Text = "порцій напою";
+            this.label5.Text = "Порцій";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1580, 95);
+            this.label6.Location = new System.Drawing.Point(1569, 95);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 20);
+            this.label6.Size = new System.Drawing.Size(41, 20);
             this.label6.TabIndex = 42;
-            this.label6.Text = "ціна";
+            this.label6.Text = "Ціна";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1712, 95);
+            this.label7.Location = new System.Drawing.Point(1189, 291);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(22, 20);
             this.label7.TabIndex = 43;
             this.label7.Text = "id";
             // 
+            // add_drink_button
+            // 
+            this.add_drink_button.Location = new System.Drawing.Point(1673, 196);
+            this.add_drink_button.Name = "add_drink_button";
+            this.add_drink_button.Size = new System.Drawing.Size(113, 52);
+            this.add_drink_button.TabIndex = 44;
+            this.add_drink_button.Text = "додати напій";
+            this.add_drink_button.UseVisualStyleBackColor = true;
+            this.add_drink_button.Click += new System.EventHandler(this.add_drink_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1912, 809);
+            this.ClientSize = new System.Drawing.Size(1819, 809);
+            this.Controls.Add(this.add_drink_button);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.drink_price);
+            this.Controls.Add(this.drink_portion);
+            this.Controls.Add(this.drink_name);
+            this.Controls.Add(this.drink_id);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.check_button);
@@ -611,15 +623,16 @@
         private PictureBox check_button;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox drink_id;
+        private TextBox drink_name;
+        private TextBox drink_portion;
+        private TextBox drink_price;
         private TextBox textBox5;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
         private Label label7;
+        private Button add_drink_button;
     }
 }

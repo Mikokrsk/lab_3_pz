@@ -16,6 +16,10 @@ namespace lab_3
         TimeSpan chocolate_time = new TimeSpan(0, 0, 1, 45);
         DateTime date;
 
+        public int id;
+        public string name;
+        public int portion;
+        public int price;
         public Form1()
         {
             InitializeComponent();
@@ -64,7 +68,20 @@ namespace lab_3
           //  db.SaveChanges();
 
         }
-
+        public void add_drink(int id,string name,int portion,int price)
+        {
+            using var db = new MachineContext();
+            var drink = new Drink
+            {
+                DrinkId = id,
+                Name_Drink = name,
+                Portion_Drink = portion,
+                Price_Drink = price,
+            };
+            db.Add(drink);
+            db.SaveChanges();
+      
+        }
         private void coffee_button_Click(object sender, EventArgs e)
         {
             //  price_drink = price_coffee;
@@ -114,11 +131,13 @@ namespace lab_3
             cacao_button.Enabled = !cacao_button.Enabled;
             chocolate_button.Enabled = !chocolate_button.Enabled;
         }
+
         public void write_price(int money)
         {
             price_drink = money;
             price_drinks = money;
         }
+
         public void pay(int grn)
         {
             drink_choice.BackColor = Color.White;
@@ -209,6 +228,44 @@ namespace lab_3
             check_button.Visible = false;
             tips.Text = "Виберіть свій напій";
             enabled_button();
+        }
+
+        private void add_drink_button_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                id = int.Parse(drink_id.Text);
+                name = drink_name.Text;
+                portion = int.Parse(drink_portion.Text);
+                price = int.Parse(drink_price.Text);
+
+                add_drink(id, name, portion, price);
+            }
+            catch(Exception)
+            {
+
+                if(id==null||name==null||portion==null||price==null)
+                {
+                    MessageBox.Show("Не всі поля заповнені");
+                }
+               // int x;
+                if (int.TryParse(drink_id.Text,out id))
+                {
+                    MessageBox.Show("1");
+                }                
+                if (int.TryParse(drink_portion.Text,out portion))
+                {
+                    MessageBox.Show("2");
+                }
+                if (int.TryParse(drink_price.Text, out price))
+                {
+                    MessageBox.Show("3");
+                }
+                using var db = new MachineContext();
+                //if(db.Drinks.Find(id))
+              //  MessageBox.Show("Время вышло1");
+            }
         }
 
         private void check_button_Click(object sender, EventArgs e)
