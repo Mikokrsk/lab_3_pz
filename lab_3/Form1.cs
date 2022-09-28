@@ -26,14 +26,41 @@ namespace lab_3
             drink_choice.BackColor = Color.Green;
             //////////////////////////////////////
             using var db = new MachineContext();
-            Console.WriteLine($"DB Path :{db.DbPath}");
-            Console.WriteLine("Adding Drink");
+            // Console.WriteLine($"DB Path :{db.DbPath}");
+            // Console.WriteLine("Adding Drink");
             var drink = new Drink
             {
-                Name_Drink = "11111"
+                DrinkId = 15,
+                Name_Drink = "Какао1",
+                Portion_Drink = 21,
+                Price_Drink = 27,
+
             };
-            db.Add(drink);
+            //db.Add(drink);
+            //var getReader = db.Readers.Find(3);
+          //  var getDriks = db.Components.First();
+            //getReader.Books.Add(new Book { Title = "6666666" });
+           // getDriks.Drinks.Add(drink );
+            //    new Drink
+            //{
+            //  //  DrinkId = 15,
+            //    Name_Drink = "Кава",
+            //   // Portion_Drink = 21,
+            //   // Price_Drink = 27,
+            //}
+               
+            var machine = new Machine_components
+            {
+               // Machine_componentsId = 2,
+                Sugar = 125,
+                CheckPaper = 100,
+                Cups = 85,
+            };
+            db.Add(machine);
+            //db.Drinks.Update(drink);
+
             db.SaveChanges();
+
         }
 
         private void coffee_button_Click(object sender, EventArgs e)
