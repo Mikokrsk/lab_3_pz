@@ -14,7 +14,7 @@ namespace lab_3
         public int Drink_2 { get; set; }
         public int Drink_3 { get; set; }
         public int Drink_4 { get; set; }
-        public List<Machine_component> Components { get; set; } = new();
-        public List<Drink> Drinks { get; set; } = new();
+    //    public List<Machine_component> Components { get; set; } = new();
+    //    public List<Drink> Drinks { get; set; } = new();
     }
 }

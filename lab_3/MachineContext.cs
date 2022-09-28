@@ -18,7 +18,7 @@ namespace lab_3
         {
             var directory = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(directory);
-            DbPath = Path.Join(path, "Library3.db");
+            DbPath = Path.Join(path, "Lab_3_1.db");
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source={DbPath}");
     }
