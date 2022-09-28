@@ -26,16 +26,18 @@ namespace lab_3
             drink_choice.BackColor = Color.Green;
             //////////////////////////////////////
             using var db = new MachineContext();
+
+            
             // Console.WriteLine($"DB Path :{db.DbPath}");
             // Console.WriteLine("Adding Drink");
-            var drink = new Drink
-            {
-                DrinkId = 15,
-                Name_Drink = "Какао1",
-                Portion_Drink = 21,
-                Price_Drink = 27,
+            //var drink = new Drink
+            //{
+            //    DrinkId = 15,
+            //    Name_Drink = "Какао1",
+            //    Portion_Drink = 21,
+            //    Price_Drink = 27,
 
-            };
+            //};
             //db.Add(drink);
             //var getReader = db.Readers.Find(3);
           //  var getDriks = db.Components.First();
@@ -49,17 +51,17 @@ namespace lab_3
             //   // Price_Drink = 27,
             //}
                
-            var machine = new Machine_components
-            {
-               // Machine_componentsId = 2,
-                Sugar = 125,
-                CheckPaper = 100,
-                Cups = 85,
-            };
-            db.Add(machine);
+            //var machine = new Machine_components
+            //{
+            //   // Machine_componentsId = 2,
+            //    Sugar = 125,
+            //    CheckPaper = 100,
+            //    Cups = 85,
+            //};
+            //db.Add(machine);
             //db.Drinks.Update(drink);
 
-            db.SaveChanges();
+          //  db.SaveChanges();
 
         }
 

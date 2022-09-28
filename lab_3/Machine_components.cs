@@ -16,6 +16,7 @@ namespace lab_3
 
         public int Cups { get; set; }
 
+
         public List<Drink> Drinks { get; set; } = new();
     }
 }
