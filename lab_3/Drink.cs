@@ -15,7 +15,5 @@ namespace lab_3
         public int Portion_Drink { get; set; }
 
         public int Price_Drink { get; set; }
-
-
     }
 }

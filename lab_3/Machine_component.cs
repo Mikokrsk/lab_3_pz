@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace lab_3
 {
-    public class Machine_components
+    public class Machine_component
     {
-        public int Machine_componentsId { get; set; }
+        public int Machine_componentId { get; set; }
 
         public int Sugar { get; set; }
 
@@ -16,7 +16,5 @@ namespace lab_3
 
         public int Cups { get; set; }
 
-
-        public List<Drink> Drinks { get; set; } = new();
     }
 }
