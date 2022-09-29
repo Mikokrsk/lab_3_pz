@@ -33,10 +33,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.coffee_button = new System.Windows.Forms.Button();
-            this.tea_button = new System.Windows.Forms.Button();
-            this.cacao_button = new System.Windows.Forms.Button();
-            this.chocolate_button = new System.Windows.Forms.Button();
+            this.drink_1_button = new System.Windows.Forms.Button();
+            this.drink_3_button = new System.Windows.Forms.Button();
+            this.drink_2_button = new System.Windows.Forms.Button();
+            this.drink_4_button = new System.Windows.Forms.Button();
             this.grn_1 = new System.Windows.Forms.Button();
             this.grn_2 = new System.Windows.Forms.Button();
             this.grn_5 = new System.Windows.Forms.Button();
@@ -67,13 +67,36 @@
             this.drink_name = new System.Windows.Forms.TextBox();
             this.drink_portion = new System.Windows.Forms.TextBox();
             this.drink_price = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.add_drink_button = new System.Windows.Forms.Button();
+            this.add_machine_componet_button = new System.Windows.Forms.Button();
+            this.sugar = new System.Windows.Forms.TextBox();
+            this.cups = new System.Windows.Forms.TextBox();
+            this.check_paper = new System.Windows.Forms.TextBox();
+            this.machine_componets_id = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.drinks_list = new System.Windows.Forms.ListBox();
+            this.mc_list = new System.Windows.Forms.ListBox();
+            this.ma_list = new System.Windows.Forms.ListBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.add_machine_button = new System.Windows.Forms.Button();
+            this.drink_4_id = new System.Windows.Forms.TextBox();
+            this.drink_3_id = new System.Windows.Forms.TextBox();
+            this.drink_2_id = new System.Windows.Forms.TextBox();
+            this.drink_1_id = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.mc_ma_id = new System.Windows.Forms.TextBox();
+            this.machine_id = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -119,45 +142,45 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // coffee_button
+            // drink_1_button
             // 
-            this.coffee_button.Location = new System.Drawing.Point(385, 39);
-            this.coffee_button.Name = "coffee_button";
-            this.coffee_button.Size = new System.Drawing.Size(170, 85);
-            this.coffee_button.TabIndex = 3;
-            this.coffee_button.Text = "Кава";
-            this.coffee_button.UseVisualStyleBackColor = true;
-            this.coffee_button.Click += new System.EventHandler(this.coffee_button_Click);
+            this.drink_1_button.Location = new System.Drawing.Point(385, 39);
+            this.drink_1_button.Name = "drink_1_button";
+            this.drink_1_button.Size = new System.Drawing.Size(170, 85);
+            this.drink_1_button.TabIndex = 3;
+            this.drink_1_button.Text = "Кава";
+            this.drink_1_button.UseVisualStyleBackColor = true;
+            this.drink_1_button.Click += new System.EventHandler(this.coffee_button_Click);
             // 
-            // tea_button
+            // drink_3_button
             // 
-            this.tea_button.Location = new System.Drawing.Point(587, 39);
-            this.tea_button.Name = "tea_button";
-            this.tea_button.Size = new System.Drawing.Size(170, 85);
-            this.tea_button.TabIndex = 4;
-            this.tea_button.Text = "Чай";
-            this.tea_button.UseVisualStyleBackColor = true;
-            this.tea_button.Click += new System.EventHandler(this.tea_button_Click);
+            this.drink_3_button.Location = new System.Drawing.Point(587, 39);
+            this.drink_3_button.Name = "drink_3_button";
+            this.drink_3_button.Size = new System.Drawing.Size(170, 85);
+            this.drink_3_button.TabIndex = 4;
+            this.drink_3_button.Text = "Чай";
+            this.drink_3_button.UseVisualStyleBackColor = true;
+            this.drink_3_button.Click += new System.EventHandler(this.tea_button_Click);
             // 
-            // cacao_button
+            // drink_2_button
             // 
-            this.cacao_button.Location = new System.Drawing.Point(385, 151);
-            this.cacao_button.Name = "cacao_button";
-            this.cacao_button.Size = new System.Drawing.Size(170, 85);
-            this.cacao_button.TabIndex = 5;
-            this.cacao_button.Text = "Какао";
-            this.cacao_button.UseVisualStyleBackColor = true;
-            this.cacao_button.Click += new System.EventHandler(this.cacao_button_Click);
+            this.drink_2_button.Location = new System.Drawing.Point(385, 151);
+            this.drink_2_button.Name = "drink_2_button";
+            this.drink_2_button.Size = new System.Drawing.Size(170, 85);
+            this.drink_2_button.TabIndex = 5;
+            this.drink_2_button.Text = "Какао";
+            this.drink_2_button.UseVisualStyleBackColor = true;
+            this.drink_2_button.Click += new System.EventHandler(this.cacao_button_Click);
             // 
-            // chocolate_button
+            // drink_4_button
             // 
-            this.chocolate_button.Location = new System.Drawing.Point(587, 151);
-            this.chocolate_button.Name = "chocolate_button";
-            this.chocolate_button.Size = new System.Drawing.Size(170, 85);
-            this.chocolate_button.TabIndex = 6;
-            this.chocolate_button.Text = "Гарячий шоколад";
-            this.chocolate_button.UseVisualStyleBackColor = true;
-            this.chocolate_button.Click += new System.EventHandler(this.chocolate_button_Click);
+            this.drink_4_button.Location = new System.Drawing.Point(587, 151);
+            this.drink_4_button.Name = "drink_4_button";
+            this.drink_4_button.Size = new System.Drawing.Size(170, 85);
+            this.drink_4_button.TabIndex = 6;
+            this.drink_4_button.Text = "Гарячий шоколад";
+            this.drink_4_button.UseVisualStyleBackColor = true;
+            this.drink_4_button.Click += new System.EventHandler(this.chocolate_button_Click);
             // 
             // grn_1
             // 
@@ -430,43 +453,36 @@
             // 
             // drink_id
             // 
-            this.drink_id.Location = new System.Drawing.Point(1137, 146);
+            this.drink_id.Location = new System.Drawing.Point(1137, 54);
             this.drink_id.Name = "drink_id";
             this.drink_id.Size = new System.Drawing.Size(125, 27);
             this.drink_id.TabIndex = 34;
             // 
             // drink_name
             // 
-            this.drink_name.Location = new System.Drawing.Point(1268, 146);
+            this.drink_name.Location = new System.Drawing.Point(1268, 54);
             this.drink_name.Name = "drink_name";
             this.drink_name.Size = new System.Drawing.Size(125, 27);
             this.drink_name.TabIndex = 35;
             // 
             // drink_portion
             // 
-            this.drink_portion.Location = new System.Drawing.Point(1399, 146);
+            this.drink_portion.Location = new System.Drawing.Point(1399, 54);
             this.drink_portion.Name = "drink_portion";
             this.drink_portion.Size = new System.Drawing.Size(125, 27);
             this.drink_portion.TabIndex = 36;
             // 
             // drink_price
             // 
-            this.drink_price.Location = new System.Drawing.Point(1530, 146);
+            this.drink_price.Location = new System.Drawing.Point(1530, 54);
             this.drink_price.Name = "drink_price";
             this.drink_price.Size = new System.Drawing.Size(125, 27);
             this.drink_price.TabIndex = 37;
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(1137, 316);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(125, 27);
-            this.textBox5.TabIndex = 38;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1189, 95);
+            this.label3.Location = new System.Drawing.Point(1189, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 20);
             this.label3.TabIndex = 39;
@@ -475,7 +491,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1305, 95);
+            this.label4.Location = new System.Drawing.Point(1305, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 40;
@@ -484,7 +500,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1424, 95);
+            this.label5.Location = new System.Drawing.Point(1424, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 41;
@@ -493,24 +509,15 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1569, 95);
+            this.label6.Location = new System.Drawing.Point(1569, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 20);
             this.label6.TabIndex = 42;
             this.label6.Text = "Ціна";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1189, 291);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(22, 20);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "id";
-            // 
             // add_drink_button
             // 
-            this.add_drink_button.Location = new System.Drawing.Point(1673, 196);
+            this.add_drink_button.Location = new System.Drawing.Point(1673, 29);
             this.add_drink_button.Name = "add_drink_button";
             this.add_drink_button.Size = new System.Drawing.Size(113, 52);
             this.add_drink_button.TabIndex = 44;
@@ -518,18 +525,248 @@
             this.add_drink_button.UseVisualStyleBackColor = true;
             this.add_drink_button.Click += new System.EventHandler(this.add_drink_button_Click);
             // 
+            // add_machine_componet_button
+            // 
+            this.add_machine_componet_button.Location = new System.Drawing.Point(1673, 285);
+            this.add_machine_componet_button.Name = "add_machine_componet_button";
+            this.add_machine_componet_button.Size = new System.Drawing.Size(113, 52);
+            this.add_machine_componet_button.TabIndex = 50;
+            this.add_machine_componet_button.Text = "додати розхідники";
+            this.add_machine_componet_button.UseVisualStyleBackColor = true;
+            this.add_machine_componet_button.Click += new System.EventHandler(this.add_machine_componet_button_Click);
+            // 
+            // sugar
+            // 
+            this.sugar.Location = new System.Drawing.Point(1530, 310);
+            this.sugar.Name = "sugar";
+            this.sugar.Size = new System.Drawing.Size(125, 27);
+            this.sugar.TabIndex = 49;
+            // 
+            // cups
+            // 
+            this.cups.Location = new System.Drawing.Point(1399, 310);
+            this.cups.Name = "cups";
+            this.cups.Size = new System.Drawing.Size(125, 27);
+            this.cups.TabIndex = 48;
+            // 
+            // check_paper
+            // 
+            this.check_paper.Location = new System.Drawing.Point(1268, 310);
+            this.check_paper.Name = "check_paper";
+            this.check_paper.Size = new System.Drawing.Size(125, 27);
+            this.check_paper.TabIndex = 47;
+            // 
+            // machine_componets_id
+            // 
+            this.machine_componets_id.Location = new System.Drawing.Point(1137, 310);
+            this.machine_componets_id.Name = "machine_componets_id";
+            this.machine_componets_id.Size = new System.Drawing.Size(125, 27);
+            this.machine_componets_id.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1541, 266);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 20);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "Порцій цукру";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1412, 266);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 20);
+            this.label8.TabIndex = 53;
+            this.label8.Text = "Стаканчики";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1276, 266);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(117, 20);
+            this.label9.TabIndex = 52;
+            this.label9.Text = "Папір для чеків";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1189, 266);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(22, 20);
+            this.label10.TabIndex = 51;
+            this.label10.Text = "id";
+            // 
+            // drinks_list
+            // 
+            this.drinks_list.FormattingEnabled = true;
+            this.drinks_list.ItemHeight = 20;
+            this.drinks_list.Location = new System.Drawing.Point(1137, 104);
+            this.drinks_list.Name = "drinks_list";
+            this.drinks_list.Size = new System.Drawing.Size(518, 144);
+            this.drinks_list.TabIndex = 55;
+            // 
+            // mc_list
+            // 
+            this.mc_list.FormattingEnabled = true;
+            this.mc_list.ItemHeight = 20;
+            this.mc_list.Location = new System.Drawing.Point(1137, 353);
+            this.mc_list.Name = "mc_list";
+            this.mc_list.Size = new System.Drawing.Size(518, 144);
+            this.mc_list.TabIndex = 56;
+            // 
+            // ma_list
+            // 
+            this.ma_list.FormattingEnabled = true;
+            this.ma_list.ItemHeight = 20;
+            this.ma_list.Location = new System.Drawing.Point(1137, 607);
+            this.ma_list.Name = "ma_list";
+            this.ma_list.Size = new System.Drawing.Size(518, 144);
+            this.ma_list.TabIndex = 66;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1584, 519);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 20);
+            this.label11.TabIndex = 65;
+            this.label11.Text = "напій 4";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1501, 519);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 20);
+            this.label12.TabIndex = 64;
+            this.label12.Text = "напій 3";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1412, 519);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 20);
+            this.label13.TabIndex = 63;
+            this.label13.Text = "напій 2";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1323, 519);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 20);
+            this.label14.TabIndex = 62;
+            this.label14.Text = "напій 1";
+            // 
+            // add_machine_button
+            // 
+            this.add_machine_button.Location = new System.Drawing.Point(1673, 607);
+            this.add_machine_button.Name = "add_machine_button";
+            this.add_machine_button.Size = new System.Drawing.Size(113, 52);
+            this.add_machine_button.TabIndex = 61;
+            this.add_machine_button.Text = "додати автомати";
+            this.add_machine_button.UseVisualStyleBackColor = true;
+            this.add_machine_button.Click += new System.EventHandler(this.add_machine_button_Click);
+            // 
+            // drink_4_id
+            // 
+            this.drink_4_id.Location = new System.Drawing.Point(1576, 564);
+            this.drink_4_id.Name = "drink_4_id";
+            this.drink_4_id.Size = new System.Drawing.Size(83, 27);
+            this.drink_4_id.TabIndex = 60;
+            // 
+            // drink_3_id
+            // 
+            this.drink_3_id.Location = new System.Drawing.Point(1487, 564);
+            this.drink_3_id.Name = "drink_3_id";
+            this.drink_3_id.Size = new System.Drawing.Size(83, 27);
+            this.drink_3_id.TabIndex = 59;
+            // 
+            // drink_2_id
+            // 
+            this.drink_2_id.Location = new System.Drawing.Point(1398, 564);
+            this.drink_2_id.Name = "drink_2_id";
+            this.drink_2_id.Size = new System.Drawing.Size(83, 27);
+            this.drink_2_id.TabIndex = 58;
+            // 
+            // drink_1_id
+            // 
+            this.drink_1_id.Location = new System.Drawing.Point(1309, 564);
+            this.drink_1_id.Name = "drink_1_id";
+            this.drink_1_id.Size = new System.Drawing.Size(83, 27);
+            this.drink_1_id.TabIndex = 57;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1216, 519);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(87, 20);
+            this.label15.TabIndex = 70;
+            this.label15.Text = "розхідники";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1164, 519);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(22, 20);
+            this.label16.TabIndex = 69;
+            this.label16.Text = "id";
+            // 
+            // mc_ma_id
+            // 
+            this.mc_ma_id.Location = new System.Drawing.Point(1220, 564);
+            this.mc_ma_id.Name = "mc_ma_id";
+            this.mc_ma_id.Size = new System.Drawing.Size(83, 27);
+            this.mc_ma_id.TabIndex = 68;
+            // 
+            // machine_id
+            // 
+            this.machine_id.Location = new System.Drawing.Point(1131, 564);
+            this.machine_id.Name = "machine_id";
+            this.machine_id.Size = new System.Drawing.Size(83, 27);
+            this.machine_id.TabIndex = 67;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1819, 809);
-            this.Controls.Add(this.add_drink_button);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.mc_ma_id);
+            this.Controls.Add(this.machine_id);
+            this.Controls.Add(this.ma_list);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.add_machine_button);
+            this.Controls.Add(this.drink_4_id);
+            this.Controls.Add(this.drink_3_id);
+            this.Controls.Add(this.drink_2_id);
+            this.Controls.Add(this.drink_1_id);
+            this.Controls.Add(this.mc_list);
+            this.Controls.Add(this.drinks_list);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.add_machine_componet_button);
+            this.Controls.Add(this.sugar);
+            this.Controls.Add(this.cups);
+            this.Controls.Add(this.check_paper);
+            this.Controls.Add(this.machine_componets_id);
+            this.Controls.Add(this.add_drink_button);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.drink_price);
             this.Controls.Add(this.drink_portion);
             this.Controls.Add(this.drink_name);
@@ -559,10 +796,10 @@
             this.Controls.Add(this.grn_5);
             this.Controls.Add(this.grn_2);
             this.Controls.Add(this.grn_1);
-            this.Controls.Add(this.chocolate_button);
-            this.Controls.Add(this.cacao_button);
-            this.Controls.Add(this.tea_button);
-            this.Controls.Add(this.coffee_button);
+            this.Controls.Add(this.drink_4_button);
+            this.Controls.Add(this.drink_2_button);
+            this.Controls.Add(this.drink_3_button);
+            this.Controls.Add(this.drink_1_button);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -593,10 +830,10 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
-        private Button coffee_button;
-        private Button tea_button;
-        private Button cacao_button;
-        private Button chocolate_button;
+        private Button drink_1_button;
+        private Button drink_3_button;
+        private Button drink_2_button;
+        private Button drink_4_button;
         private Button grn_1;
         private Button grn_2;
         private Button grn_5;
@@ -627,12 +864,35 @@
         private TextBox drink_name;
         private TextBox drink_portion;
         private TextBox drink_price;
-        private TextBox textBox5;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
-        private Label label7;
         private Button add_drink_button;
+        private Button add_machine_componet_button;
+        private TextBox sugar;
+        private TextBox cups;
+        private TextBox check_paper;
+        private TextBox machine_componets_id;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private ListBox drinks_list;
+        private ListBox mc_list;
+        private ListBox ma_list;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Button add_machine_button;
+        private TextBox drink_4_id;
+        private TextBox drink_3_id;
+        private TextBox drink_2_id;
+        private TextBox drink_1_id;
+        private Label label15;
+        private Label label16;
+        private TextBox mc_ma_id;
+        private TextBox machine_id;
     }
 }

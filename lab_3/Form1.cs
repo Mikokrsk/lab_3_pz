@@ -2,8 +2,8 @@ namespace lab_3
 {
     public partial class Form1 : Form
     {
-        public int price_drink;
-        public int price_drinks;
+        public int price_Drink;
+        public int price_Drinks;
         public int price_coffee = 25;
         public int price_tea = 15;
         public int price_cacao = 17;
@@ -16,10 +16,25 @@ namespace lab_3
         TimeSpan chocolate_time = new TimeSpan(0, 0, 1, 45);
         DateTime date;
 
-        public int id;
-        public string name;
-        public int portion;
-        public int price;
+
+
+        public int id_drink;
+        public string name_drink;
+        public int portion_drink;
+        public int price_drink;
+
+        public int id_mc;
+        public int check_paper_mc;
+        public int cups_mc;
+        public int sugar_mc;
+
+        public int id_machine;
+        public int id_mc_ma;
+        public int id_drink_1_ma;
+        public int id_drink_2_ma;
+        public int id_drink_3_ma;
+        public int id_drink_4_ma;
+
         public Form1()
         {
             InitializeComponent();
@@ -27,47 +42,16 @@ namespace lab_3
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             drink_choice.BackColor = Color.Green;
             //////////////////////////////////////
             using var db = new MachineContext();
 
-            
-            // Console.WriteLine($"DB Path :{db.DbPath}");
-            // Console.WriteLine("Adding Drink");
-            //var drink = new Drink
-            //{
-            //    DrinkId = 15,
-            //    Name_Drink = "Какао1",
-            //    Portion_Drink = 21,
-            //    Price_Drink = 27,
-
-            //};
-            //db.Add(drink);
-            //var getReader = db.Readers.Find(3);
-          //  var getDriks = db.Components.First();
-            //getReader.Books.Add(new Book { Title = "6666666" });
-           // getDriks.Drinks.Add(drink );
-            //    new Drink
-            //{
-            //  //  DrinkId = 15,
-            //    Name_Drink = "Кава",
-            //   // Portion_Drink = 21,
-            //   // Price_Drink = 27,
-            //}
-               
-            //var machine = new Machine_components
-            //{
-            //   // Machine_componentsId = 2,
-            //    Sugar = 125,
-            //    CheckPaper = 100,
-            //    Cups = 85,
-            //};
-            //db.Add(machine);
-            //db.Drinks.Update(drink);
-
-          //  db.SaveChanges();
-
+             update_list_drink();
+             update_list_mc();
+             update_list_ma();
         }
+
         public void add_drink(int id,string name,int portion,int price)
         {
             using var db = new MachineContext();
@@ -80,13 +64,83 @@ namespace lab_3
             };
             db.Add(drink);
             db.SaveChanges();
-      
+            update_list_drink();
+
         }
+
+        public void add_mc(int id,int check_paper, int cups,int sugar)
+        {
+            using var db = new MachineContext();
+            var mc = new Machine_component
+            {
+               Machine_componentId=id,
+                Sugar=sugar,
+                CheckPaper=check_paper,
+                Cups=cups,
+            };
+            db.Add(mc);
+            db.SaveChanges();
+            update_list_ma();
+        }
+
+        public void add_machine(int id,int id_mc,int drink_1, int drink_2, int drink_3, int drink_4)
+        {
+               using var db = new MachineContext();
+               var mc = new Machine
+               {
+                   MachineId=id,
+                   Machine_components=id_mc,
+                   Drink_1=drink_1,
+                   Drink_2=drink_2,
+                   Drink_3=drink_3,
+                   Drink_4=drink_4,
+               };
+               db.Add(mc);
+               db.SaveChanges();
+            update_list_ma();
+        }
+
+        public void update_list_drink()
+        {
+            drinks_list.Items.Clear();
+            using var db = new MachineContext();
+            foreach (var item in db.Drinks)
+            {
+                drinks_list.Items.Add(item.DrinkId +" "+ item.Name_Drink 
+                    + " " + item.Portion_Drink + " " + item.Price_Drink);
+            }
+        }
+
+        public void update_list_mc()
+        {
+            mc_list.Items.Clear();
+            using var db = new MachineContext();
+            foreach (var item in db.Components)
+            {
+                mc_list.Items.Add(item.Machine_componentId + " " +item.CheckPaper 
+                    + " " +item.Cups + " " + item.Sugar);
+            }
+        }
+
+        public void update_list_ma()
+        {    
+            ma_list.Items.Clear();
+            using var db = new MachineContext();
+            
+            foreach (var item in db.Machines)
+            {
+                ma_list.Items.Add(item.MachineId+" "+item.Machine_components + " " +item.Drink_1
+                    + " " +item.Drink_2 + " " +item.Drink_3 + " " +item.Drink_4);
+            }
+
+           
+        }
+
         private void coffee_button_Click(object sender, EventArgs e)
         {
             //  price_drink = price_coffee;
             write_price(price_coffee);
-            coffee_button.BackColor = Color.Green;
+            drink_1_button.BackColor = Color.Green;
             totalTime = coffee_time;
             enabled_button();
             pay(0);
@@ -97,7 +151,7 @@ namespace lab_3
         {
             //  price_drink = price_tea;
             write_price(price_tea);
-            tea_button.BackColor = Color.Green;
+            drink_3_button.BackColor = Color.Green;
             totalTime = tea_time;
             enabled_button();
             pay(0);
@@ -107,7 +161,7 @@ namespace lab_3
         {
             // price_drink = price_cacao;
             write_price(price_cacao);
-            cacao_button.BackColor = Color.Green;
+            drink_2_button.BackColor = Color.Green;
             totalTime = cacao_time;
             enabled_button();
             pay(0);
@@ -118,7 +172,7 @@ namespace lab_3
         {
             //  price_drink = price_chocolate;
             write_price(price_chocolate);
-            chocolate_button.BackColor = Color.Green;
+            drink_4_button.BackColor = Color.Green;
             totalTime = chocolate_time;
             enabled_button();
             pay(0);
@@ -126,16 +180,16 @@ namespace lab_3
 
         public void enabled_button()
         {
-            coffee_button.Enabled = !coffee_button.Enabled;
-            tea_button.Enabled = !tea_button.Enabled;
-            cacao_button.Enabled = !cacao_button.Enabled;
-            chocolate_button.Enabled = !chocolate_button.Enabled;
+            drink_1_button.Enabled = !drink_1_button.Enabled;
+            drink_3_button.Enabled = !drink_3_button.Enabled;
+            drink_2_button.Enabled = !drink_2_button.Enabled;
+            drink_4_button.Enabled = !drink_4_button.Enabled;
         }
 
         public void write_price(int money)
         {
-            price_drink = money;
-            price_drinks = money;
+            price_Drink = money;
+            price_Drinks = money;
         }
 
         public void pay(int grn)
@@ -143,14 +197,14 @@ namespace lab_3
             drink_choice.BackColor = Color.White;
             money.BackColor = Color.Green;
             cup.Visible = true;
-            tips.Text = $"Внесіть кошти :{price_drink} грн";
+            tips.Text = $"Внесіть кошти :{price_Drink} грн";
             grn_1.Enabled = grn_10.Enabled = grn_100.Enabled = grn_1000.Enabled = grn_2.Enabled =
             grn_20.Enabled = grn_200.Enabled = grn_5.Enabled = grn_50.Enabled = grn_500.Enabled =
             card.Enabled = true;
-            price_drink -= grn;
-            if (price_drink > 0)
+            price_Drink -= grn;
+            if (price_Drink > 0)
             {
-                tips.Text = $"Залишилося ще:{price_drink}грн";
+                tips.Text = $"Залишилося ще:{price_Drink}грн";
                 date = DateTime.Now;
             }
             else
@@ -199,7 +253,6 @@ namespace lab_3
                 }
         }
 
-
         private void cup_Click(object sender, EventArgs e)
         {
             tips.Text = "Візміть чек";
@@ -212,17 +265,16 @@ namespace lab_3
            // chek();
         }
 
-
         public void chek()
         {
-            string x = $"Вартість = {price_drinks} \nРешта = {-price_drink}  \nДата купівлі :{date}";
+            string x = $"Вартість = {price_Drinks} \nРешта = {-price_Drink}  \nДата купівлі :{date}";
             MessageBox.Show(x, "chek") ;
             // MessageBox.Show("Время вышло1");
             check.BackColor = Color.White;
-            coffee_button.BackColor = Color.White;
-            tea_button.BackColor = Color.White;
-            cacao_button.BackColor = Color.White;
-            chocolate_button.BackColor = Color.White;
+            drink_1_button.BackColor = Color.White;
+            drink_3_button.BackColor = Color.White;
+            drink_2_button.BackColor = Color.White;
+            drink_4_button.BackColor = Color.White;
             drink_choice.BackColor = Color.Green;
             check_button.Enabled = false;
             check_button.Visible = false;
@@ -235,44 +287,74 @@ namespace lab_3
 
             try
             {
-                id = int.Parse(drink_id.Text);
-                name = drink_name.Text;
-                portion = int.Parse(drink_portion.Text);
-                price = int.Parse(drink_price.Text);
+                id_drink = int.Parse(drink_id.Text);
+                name_drink = drink_name.Text;
+                portion_drink = int.Parse(drink_portion.Text);
+                price_drink = int.Parse(drink_price.Text);
 
-                add_drink(id, name, portion, price);
+                add_drink(id_drink, name_drink, portion_drink, price_drink);
             }
-            catch(Exception)
+            catch//(Exception)
             {
 
-                if(id==null||name==null||portion==null||price==null)
+                if(id_drink==default||name_drink==null||portion_drink==default || price_drink==default)
                 {
-                    MessageBox.Show("Не всі поля заповнені");
-                }
-               // int x;
-                if (int.TryParse(drink_id.Text,out id))
-                {
-                    MessageBox.Show("1");
-                }                
-                if (int.TryParse(drink_portion.Text,out portion))
-                {
-                    MessageBox.Show("2");
-                }
-                if (int.TryParse(drink_price.Text, out price))
-                {
-                    MessageBox.Show("3");
-                }
-                using var db = new MachineContext();
-                //if(db.Drinks.Find(id))
-              //  MessageBox.Show("Время вышло1");
+                    MessageBox.Show("Не правильно заповнені поля");
+                }              
+
             }
         }
+
+        private void add_machine_componet_button_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                id_mc = int.Parse(machine_componets_id.Text);
+                check_paper_mc = int.Parse(check_paper.Text);
+                cups_mc = int.Parse(cups.Text);
+                sugar_mc = int.Parse(sugar.Text);
+                add_mc(id_mc,check_paper_mc,cups_mc,sugar_mc);
+
+            }
+            catch//(Exception)
+            {
+                if(id_mc==default||check_paper_mc==default||cups_mc==default||sugar_mc==default)
+                {
+                    MessageBox.Show("Не правильно заповнені поля");
+                }
+
+            }
+        }
+
+        private void add_machine_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                id_machine=int.Parse(machine_id.Text);
+                id_mc_ma = int.Parse(mc_ma_id.Text);
+                id_drink_1_ma = int.Parse(drink_1_id.Text);
+                id_drink_2_ma = int.Parse(drink_2_id.Text);
+                id_drink_3_ma = int.Parse(drink_3_id.Text);
+                id_drink_4_ma = int.Parse(drink_4_id.Text);
+                add_machine(id_machine,id_mc_ma,id_drink_1_ma,id_drink_2_ma,id_drink_3_ma,id_drink_4_ma);
+            }
+            catch
+            {
+                if(id_machine==default||id_mc_ma==default||id_drink_1_ma==default||id_drink_2_ma==default||id_drink_3_ma==default||id_drink_4_ma==default)
+                {
+                    MessageBox.Show("Не правильно заповнені поля");
+                }
+            }
+
+        }
+
 
         private void check_button_Click(object sender, EventArgs e)
         {
             chek();
         }
-                // MessageBox.Show("Время вышло");
+               
         private void grn_1_Click(object sender, EventArgs e)
         {
             pay(1);
