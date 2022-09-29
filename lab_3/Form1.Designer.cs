@@ -97,6 +97,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.mc_ma_id = new System.Windows.Forms.TextBox();
             this.machine_id = new System.Windows.Forms.TextBox();
+            this.update_drink_button = new System.Windows.Forms.Button();
+            this.update_mc_button = new System.Windows.Forms.Button();
+            this.update_ma_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -150,7 +153,7 @@
             this.drink_1_button.TabIndex = 3;
             this.drink_1_button.Text = "Кава";
             this.drink_1_button.UseVisualStyleBackColor = true;
-            this.drink_1_button.Click += new System.EventHandler(this.coffee_button_Click);
+            this.drink_1_button.Click += new System.EventHandler(this.drink_1_button_Click);
             // 
             // drink_3_button
             // 
@@ -160,7 +163,7 @@
             this.drink_3_button.TabIndex = 4;
             this.drink_3_button.Text = "Чай";
             this.drink_3_button.UseVisualStyleBackColor = true;
-            this.drink_3_button.Click += new System.EventHandler(this.tea_button_Click);
+            this.drink_3_button.Click += new System.EventHandler(this.drink_3_button_Click);
             // 
             // drink_2_button
             // 
@@ -170,7 +173,7 @@
             this.drink_2_button.TabIndex = 5;
             this.drink_2_button.Text = "Какао";
             this.drink_2_button.UseVisualStyleBackColor = true;
-            this.drink_2_button.Click += new System.EventHandler(this.cacao_button_Click);
+            this.drink_2_button.Click += new System.EventHandler(this.drink_2_button_Click);
             // 
             // drink_4_button
             // 
@@ -180,7 +183,7 @@
             this.drink_4_button.TabIndex = 6;
             this.drink_4_button.Text = "Гарячий шоколад";
             this.drink_4_button.UseVisualStyleBackColor = true;
-            this.drink_4_button.Click += new System.EventHandler(this.chocolate_button_Click);
+            this.drink_4_button.Click += new System.EventHandler(this.drink_4_button_Click);
             // 
             // grn_1
             // 
@@ -664,7 +667,7 @@
             // 
             // add_machine_button
             // 
-            this.add_machine_button.Location = new System.Drawing.Point(1673, 607);
+            this.add_machine_button.Location = new System.Drawing.Point(1673, 539);
             this.add_machine_button.Name = "add_machine_button";
             this.add_machine_button.Size = new System.Drawing.Size(113, 52);
             this.add_machine_button.TabIndex = 61;
@@ -732,11 +735,44 @@
             this.machine_id.Size = new System.Drawing.Size(83, 27);
             this.machine_id.TabIndex = 67;
             // 
+            // update_drink_button
+            // 
+            this.update_drink_button.Location = new System.Drawing.Point(1673, 104);
+            this.update_drink_button.Name = "update_drink_button";
+            this.update_drink_button.Size = new System.Drawing.Size(113, 52);
+            this.update_drink_button.TabIndex = 71;
+            this.update_drink_button.Text = "редагувати напій";
+            this.update_drink_button.UseVisualStyleBackColor = true;
+            this.update_drink_button.Click += new System.EventHandler(this.update_drink_Click);
+            // 
+            // update_mc_button
+            // 
+            this.update_mc_button.Location = new System.Drawing.Point(1673, 353);
+            this.update_mc_button.Name = "update_mc_button";
+            this.update_mc_button.Size = new System.Drawing.Size(113, 52);
+            this.update_mc_button.TabIndex = 72;
+            this.update_mc_button.Text = "редагувати розхідники";
+            this.update_mc_button.UseVisualStyleBackColor = true;
+            this.update_mc_button.Click += new System.EventHandler(this.update_mc_Click);
+            // 
+            // update_ma_button
+            // 
+            this.update_ma_button.Location = new System.Drawing.Point(1673, 607);
+            this.update_ma_button.Name = "update_ma_button";
+            this.update_ma_button.Size = new System.Drawing.Size(113, 52);
+            this.update_ma_button.TabIndex = 73;
+            this.update_ma_button.Text = "оновити автомат";
+            this.update_ma_button.UseVisualStyleBackColor = true;
+            this.update_ma_button.Click += new System.EventHandler(this.update_ma_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1819, 809);
+            this.Controls.Add(this.update_ma_button);
+            this.Controls.Add(this.update_mc_button);
+            this.Controls.Add(this.update_drink_button);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.mc_ma_id);
@@ -894,5 +930,8 @@
         private Label label16;
         private TextBox mc_ma_id;
         private TextBox machine_id;
+        private Button update_drink_button;
+        private Button update_mc_button;
+        private Button update_ma_button;
     }
 }

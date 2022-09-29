@@ -136,7 +136,7 @@ namespace lab_3
            
         }
 
-        private void coffee_button_Click(object sender, EventArgs e)
+        private void drink_1_button_Click(object sender, EventArgs e)
         {
             //  price_drink = price_coffee;
             write_price(price_coffee);
@@ -147,7 +147,7 @@ namespace lab_3
 
         }
 
-        private void tea_button_Click(object sender, EventArgs e)
+        private void drink_3_button_Click(object sender, EventArgs e)
         {
             //  price_drink = price_tea;
             write_price(price_tea);
@@ -157,7 +157,7 @@ namespace lab_3
             pay(0);
         }
 
-        private void cacao_button_Click(object sender, EventArgs e)
+        private void drink_2_button_Click(object sender, EventArgs e)
         {
             // price_drink = price_cacao;
             write_price(price_cacao);
@@ -168,7 +168,7 @@ namespace lab_3
 
         }
 
-        private void chocolate_button_Click(object sender, EventArgs e)
+        private void drink_4_button_Click(object sender, EventArgs e)
         {
             //  price_drink = price_chocolate;
             write_price(price_chocolate);
@@ -349,6 +349,52 @@ namespace lab_3
 
         }
 
+        private void update_drink_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                id_drink = int.Parse(drink_id.Text);
+                name_drink = drink_name.Text;
+                portion_drink = int.Parse(drink_portion.Text);
+                price_drink = int.Parse(drink_price.Text);
+
+                update_drink(id_drink, name_drink, portion_drink, price_drink);
+            }
+            catch//(Exception)
+            {
+
+                if (id_drink == default || name_drink == null || portion_drink == default || price_drink == default)
+                {
+                    MessageBox.Show("Не правильно заповнені поля");
+                }
+
+            }
+        }
+        public void update_drink(int id, string name, int portion, int price)
+        {
+            using var db = new MachineContext();
+            var drink = new Drink
+            {
+                DrinkId = id,
+                Name_Drink = name,
+                Portion_Drink = portion,
+                Price_Drink = price,
+            };
+            // db.Add(drink);
+            db.Update(drink);
+            db.SaveChanges();
+            update_list_drink();
+        }
+
+        private void update_mc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void update_ma_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void check_button_Click(object sender, EventArgs e)
         {
@@ -409,7 +455,6 @@ namespace lab_3
         {
 
         }
-
 
     }
 }
