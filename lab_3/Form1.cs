@@ -4,36 +4,31 @@ namespace lab_3
     {
         public int price_Drink;
         public int price_Drinks;
-        public int price_coffee = 25;
-        public int price_tea = 15;
-        public int price_cacao = 17;
-        public int price_chocolate = 20;
+        //public int price_coffee = 25;
+        //public int price_tea = 15;
+        //public int price_cacao = 17;
+        //public int price_chocolate = 20;
 
         TimeSpan totalTime;
-        TimeSpan coffee_time = new TimeSpan(0, 0, 1, 5);
-        TimeSpan tea_time = new TimeSpan(0, 0, 1, 10);
-        TimeSpan cacao_time = new TimeSpan(0, 0, 1, 25);
-        TimeSpan chocolate_time = new TimeSpan(0, 0, 1, 45);
         DateTime date;
 
+        public int ma_num=1;
+        public int drinks;
+        //public string name_drink;
+        //public int portion_drink;
+        //public int price_drink;
 
+        //public int id_mc;
+        //public int check_paper_mc;
+        //public int cups_mc;
+        //public int sugar_mc;
 
-        public int id_drink;
-        public string name_drink;
-        public int portion_drink;
-        public int price_drink;
-
-        public int id_mc;
-        public int check_paper_mc;
-        public int cups_mc;
-        public int sugar_mc;
-
-        public int id_machine;
-        public int id_mc_ma;
-        public int id_drink_1_ma;
-        public int id_drink_2_ma;
-        public int id_drink_3_ma;
-        public int id_drink_4_ma;
+        //public int id_machine;
+        //public int id_mc_ma;
+        //public int id_drink_1_ma;
+        //public int id_drink_2_ma;
+        //public int id_drink_3_ma;
+        //public int id_drink_4_ma;
 
         public Form1()
         {
@@ -46,10 +41,18 @@ namespace lab_3
             drink_choice.BackColor = Color.Green;
             //////////////////////////////////////
             using var db = new MachineContext();
-
+          //  var ma = db.Machines.Find(ma_num);
+          //  var drink = db.Drinks.Find(drink_id);
+           // var mc = db.Components.Find(ma.Machine_components);
+             
              update_list_drink();
              update_list_mc();
              update_list_ma();
+            // step_1();
+            initiation_button(ma_num);
+            num_ma_text.Text = ma_num.ToString();
+            //using var db = new MachineContext();
+           
         }
 
         public void add_drink(int id,string name,int portion,int price)
@@ -136,46 +139,448 @@ namespace lab_3
            
         }
 
+        private void del_drink_Click(object sender, EventArgs e)
+        {
+            using var db = new MachineContext();
+            try
+            {
+                db.Remove(db.Drinks.Find(int.Parse(drink_id.Text)));
+                db.SaveChanges();
+                update_list_drink();
+            }
+            catch
+            {
+                if(drink_id.Text.Length == 0)
+                {
+                    MessageBox.Show("Поле ID обов'язково має бути заповненим ");
+                }
+
+            }
+        }
+
+        private void del_mc_Click(object sender, EventArgs e)
+        {
+            using var db = new MachineContext();
+            try
+            {
+                db.Remove(db.Components.Find(int.Parse(machine_componets_id.Text)));
+                db.SaveChanges();
+                update_list_mc();
+            }
+            catch
+            {
+                if (machine_componets_id.Text.Length == 0)
+                {
+                    MessageBox.Show("Поле ID обов'язково має бути заповненим ");
+                }
+
+            }
+        }
+
+        private void del_ma_Click(object sender, EventArgs e)
+        {
+            using var db = new MachineContext();
+            try
+            {
+                db.Remove(db.Machines.Find(int.Parse(machine_id.Text)));
+                db.SaveChanges();
+                update_list_ma();
+            }
+            catch
+            {
+                if (machine_id.Text.Length == 0)
+                {
+                    MessageBox.Show("Поле ID обов'язково має бути заповненим ");
+                }
+
+            }
+        }
+
+        private void add_drink_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(drink_name.Text.Length!=0)
+                {
+                add_drink(int.Parse(drink_id.Text), drink_name.Text, int.Parse(drink_portion.Text),
+                    int.Parse(drink_price.Text));
+                }
+                else
+                {
+                    MessageBox.Show("Не заповнені поля");
+                }
+            }
+            catch
+            {
+             
+                if (drink_id.Text.Length ==0 ||  drink_portion.Text.Length == 0 || drink_price.Text.Length 
+                    == 0)
+                {
+                    MessageBox.Show("Не заповнені поля");
+                }
+                else
+                {
+                    MessageBox.Show("Не правильно заповнені поля");
+                }
+            }
+        }
+
+        private void add_machine_componet_button_Click(object sender, EventArgs e)
+        {
+
+            try
+            { 
+                add_mc(int.Parse(machine_componets_id.Text), int.Parse(check_paper.Text), int.Parse(cups.Text),
+                   int.Parse(sugar.Text));
+            }
+            catch
+            {
+                if(machine_componets_id.Text.Length == 0 || check_paper.Text.Length==0
+                    ||cups.Text.Length==0||sugar.Text.Length==0)
+                {
+                    MessageBox.Show("Не заповнені всі поля");
+                }
+                else
+                {
+                    MessageBox.Show("Не правильно заповнені поля");
+                }
+
+            }
+        }
+
+        private void add_machine_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (drink_1_id.Text.Length == 0 || drink_2_id.Text.Length == 0 || drink_3_id.Text.Length == 0
+                    || drink_4_id.Text.Length == 0 || mc_ma_id.Text.Length == 0 || machine_id.Text.Length == 0)
+                {
+                    MessageBox.Show("Не заповнені поля");
+                }
+                else
+                {
+                    if (drink_1_id.Text == drink_2_id.Text || drink_1_id.Text == drink_3_id.Text
+                        || drink_1_id.Text == drink_4_id.Text || drink_2_id.Text == drink_3_id.Text
+                        || drink_2_id.Text == drink_4_id.Text || drink_3_id.Text == drink_4_id.Text)
+                    {
+                        MessageBox.Show("Напої повині бути різні");
+                    }
+                    else
+                    {
+                        add_machine(int.Parse(machine_id.Text), int.Parse(mc_ma_id.Text), int.Parse(drink_1_id.Text),
+                        int.Parse(drink_2_id.Text), int.Parse(drink_3_id.Text), int.Parse(drink_4_id.Text));
+                    }
+                }
+            }
+            catch
+            {
+                
+                    MessageBox.Show("Не правильно заповнені поля");
+                
+            }
+
+        }
+
+        private void update_drink_Click(object sender, EventArgs e)
+        {
+            using var db = new MachineContext();
+
+            try
+            {
+                    var drink = db.Drinks.Find(int.Parse(drink_id.Text));
+                    if (drink_name.Text.Length == 0)
+                    {
+                        drink.Name_Drink = drink.Name_Drink;
+                    }
+                    else
+                    {
+                        drink.Name_Drink = drink_name.Text;
+                    }
+
+                    try
+                    {
+                        drink.Portion_Drink = int.Parse(drink_portion.Text);
+                    }
+                    catch
+                    {
+                        drink.Portion_Drink = drink.Portion_Drink;
+                    }
+
+                    try
+                    {
+                        drink.Price_Drink = int.Parse(drink_price.Text);
+                    }
+                    catch
+                    {
+                        drink.Price_Drink = drink.Price_Drink;
+                    }
+                    db.Update(drink);
+                    db.SaveChanges();
+                    update_list_drink();
+            }
+            catch
+            {
+                if (drink_id.Text.Length == 0)
+                {
+                    MessageBox.Show("Поле ID обов'язково має бути заповненим ");
+                }
+            }
+                       
+        }
+
+        private void update_mc_Click(object sender, EventArgs e)
+        {
+            using var db = new MachineContext();
+            try
+            {
+                var mc = db.Components.Find(int.Parse(machine_componets_id.Text));
+                try
+                {
+                    mc.CheckPaper = int.Parse(check_paper.Text);
+                }
+                catch
+                {
+                    mc.CheckPaper = mc.CheckPaper;
+                }
+                try
+                {
+                    mc.Cups = int.Parse(cups.Text);
+                }
+                catch
+                {
+                    mc.Cups = mc.Cups;
+
+                }
+                try
+                {
+                    mc.Sugar = int.Parse(sugar.Text);
+                }
+                catch
+                {
+                    mc.Sugar = mc.Sugar;
+                }
+
+                db.Update(mc);
+                db.SaveChanges();
+                update_list_mc();
+            }
+            catch
+            {
+                if (machine_componets_id.Text.Length == 0)
+                {
+                    MessageBox.Show("Поле ID обов'язково має бути заповненим ");
+                }
+            }
+
+        }
+
+        private void update_ma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using var db = new MachineContext();
+                var ma = db.Machines.Find(int.Parse(machine_id.Text));
+                ma.MachineId = int.Parse(machine_id.Text);
+                try
+                {
+                    ma.Machine_components = int.Parse(mc_ma_id.Text);
+                }
+                catch
+                {
+                    ma.Machine_components = ma.Machine_components;
+                }
+
+                try
+                {
+                    ma.Drink_1 = int.Parse(drink_1_id.Text);
+                }
+                catch
+                {
+                    ma.Drink_1 = ma.Drink_1;
+                }
+                try
+                {
+                    ma.Drink_2 = int.Parse(drink_2_id.Text);
+                }
+                catch
+                {
+                    ma.Drink_2 = ma.Drink_2;
+                }
+                try
+                {
+                    ma.Drink_3 = int.Parse(drink_3_id.Text);
+                }
+                catch
+                {
+                    ma.Drink_3 = ma.Drink_3;
+                }
+                try
+                {
+                    ma.Drink_4 = int.Parse(drink_4_id.Text);
+                }
+                catch
+                {
+                    ma.Drink_4 = ma.Drink_4;
+                }
+                if(ma.Drink_1==ma.Drink_2||ma.Drink_1==ma.Drink_3||ma.Drink_1==ma.Drink_4||
+                    ma.Drink_2==ma.Drink_3||ma.Drink_2==ma.Drink_4||ma.Drink_3==ma.Drink_4)
+                {
+                    MessageBox.Show("Напої мають бути різні");
+                }
+                else
+                {
+                db.Update(ma);
+                db.SaveChanges();
+                update_list_ma();
+                }
+                
+            }
+            catch
+            {
+                MessageBox.Show("Поле ID обов'язково має бути заповненим ");
+            }
+ 
+        }
+
+        public void initiation_button(int ma_num=1)
+        {
+            using var db = new MachineContext();
+            var ma = db.Machines.Find(ma_num);
+            var drink_1 = db.Drinks.Find(ma.Drink_1);
+            var drink_2 = db.Drinks.Find(ma.Drink_2);
+            var drink_3 = db.Drinks.Find(ma.Drink_3);
+            var drink_4 = db.Drinks.Find(ma.Drink_4);
+            drink_1_button.Text = drink_1.Name_Drink;
+            drink_2_button.Text = drink_2.Name_Drink;
+            drink_3_button.Text = drink_3.Name_Drink;
+            drink_4_button.Text = drink_4.Name_Drink;
+            drink_1_button.Enabled = true;
+            drink_2_button.Enabled = true;
+            drink_3_button.Enabled = true;
+            drink_4_button.Enabled = true;
+            drink_1_button.BackColor = Color.White;
+            drink_2_button.BackColor = Color.White;
+            drink_3_button.BackColor = Color.White;
+            drink_4_button.BackColor = Color.White;
+            drink_choice.BackColor = Color.Green;
+            tips.Text = "Виберіть свій напій";
+            num_ma_text.Text = ma_num.ToString();
+        }
+
+        public void push_button_drink(int drink_id )
+        {
+            using var db = new MachineContext();
+            var ma = db.Machines.Find(ma_num);
+            var drink = db.Drinks.Find(drink_id);
+            var mc = db.Components.Find(ma.Machine_components);
+            if(mc.Cups==0)
+            { 
+                tips.Text = $"Нажаль чашок не має";
+                enabled_button();
+               
+            }
+           else
+            {
+                if(mc.CheckPaper==0)
+                {
+                    enabled_button();
+                    tips.Text = $"Нажаль чеків не має";
+                }
+                else
+                {
+                    if(mc.Sugar==0)
+                    {
+                        tips.Text = $"Нажаль цукру не має";
+                        enabled_button();
+                    }
+                    else
+                    {
+                        price_Drink = drink.Price_Drink;
+                        pay(0);
+                      
+                    }
+
+                }
+            }
+            
+        }
+
+
+
         private void drink_1_button_Click(object sender, EventArgs e)
         {
-            //  price_drink = price_coffee;
-            write_price(price_coffee);
+            using var db = new MachineContext();
+            var ma = db.Machines.Find(ma_num);
+            var drink_1 = db.Drinks.Find(ma.Drink_1);
+            drinks = drink_1.DrinkId;
+            if(drink_1.Portion_Drink>=1)
+            {
             drink_1_button.BackColor = Color.Green;
-            totalTime = coffee_time;
             enabled_button();
-            pay(0);
-
+            push_button_drink(ma.Drink_1);
+            }
+            else
+            {
+                tips.Text = "Напій закінчився";
+                drink_1_button.BackColor = Color.Red;
+            }
         }
 
         private void drink_2_button_Click(object sender, EventArgs e)
         {
-            // price_drink = price_cacao;
-            write_price(price_cacao);
-            drink_2_button.BackColor = Color.Green;
-            totalTime = cacao_time;
-            enabled_button();
-            pay(0);
-
+            using var db = new MachineContext();
+            var ma = db.Machines.Find(ma_num);
+            var drink_2 = db.Drinks.Find(ma.Drink_2);
+            drinks = drink_2.DrinkId;
+            if (drink_2.Portion_Drink >= 1)
+            {
+                drink_2_button.BackColor = Color.Green;
+                enabled_button();
+                push_button_drink(ma.Drink_2);
+            }
+            else
+            {
+                tips.Text = "Напій закінчився";
+                drink_2_button.BackColor = Color.Red;
+            }
         }
 
         private void drink_3_button_Click(object sender, EventArgs e)
         {
-            //  price_drink = price_tea;
-            write_price(price_tea);
-            drink_3_button.BackColor = Color.Green;
-            totalTime = tea_time;
-            enabled_button();
-            pay(0);
+            using var db = new MachineContext();
+            var ma = db.Machines.Find(ma_num);
+            var drink_3 = db.Drinks.Find(ma.Drink_3);
+            drinks = drink_3.DrinkId;
+            if (drink_3.Portion_Drink >= 1)
+            {
+                drink_3_button.BackColor = Color.Green;
+                enabled_button();
+                push_button_drink(ma.Drink_3);
+            }
+            else
+            {
+                tips.Text = "Напій закінчився";
+                drink_3_button.BackColor = Color.Red;
+            }
         }
         
         private void drink_4_button_Click(object sender, EventArgs e)
         {
-            //  price_drink = price_chocolate;
-            write_price(price_chocolate);
-            drink_4_button.BackColor = Color.Green;
-            totalTime = chocolate_time;
-            enabled_button();
-            pay(0);
+            using var db = new MachineContext();
+            var ma = db.Machines.Find(ma_num);
+            var drink_4 = db.Drinks.Find(ma.Drink_4);
+            drinks = drink_4.DrinkId;
+            if (drink_4.Portion_Drink >= 1)
+            {
+                drink_4_button.BackColor = Color.Green;
+                enabled_button();
+                push_button_drink(ma.Drink_4);
+            }
+            else
+            {
+                tips.Text = "Напій закінчився";
+                drink_4_button.BackColor = Color.Red;
+            }
         }
 
         public void enabled_button()
@@ -186,14 +591,13 @@ namespace lab_3
             drink_4_button.Enabled = !drink_4_button.Enabled;
         }
 
-        public void write_price(int money)
-        {
-            price_Drink = money;
-            price_Drinks = money;
-        }
-
         public void pay(int grn)
         {
+            if (grn == -1)
+            {
+                initiation_button(ma_num);
+            }
+
             drink_choice.BackColor = Color.White;
             money.BackColor = Color.Green;
             cup.Visible = true;
@@ -205,7 +609,7 @@ namespace lab_3
             if (price_Drink > 0)
             {
                 tips.Text = $"Залишилося ще:{price_Drink}грн";
-                date = DateTime.Now;
+               // date = DateTime.Now;
             }
             else
             {
@@ -220,7 +624,7 @@ namespace lab_3
 
         public void proces()
         {
-
+            date = DateTime.Now;
             totalTime = new TimeSpan(0, 0, 0, 5);
 
             tips.Text = $"Зачекайте: {totalTime.ToString()}";
@@ -262,13 +666,31 @@ namespace lab_3
             cup.Enabled = false;
             check_button.Enabled = true;
             check_button.Visible = true;
+
            // chek();
         }
 
         public void chek()
         {
-            string x = $"Вартість = {price_Drinks} \nРешта = {-price_Drink}  \nДата купівлі :{date}";
+            using var db = new MachineContext();
+            var ma = db.Machines.Find(ma_num);
+            var drink = db.Drinks.Find(drinks);
+            var mc = db.Components.Find(ma.Machine_components);
+
+            mc.Sugar = mc.Sugar - 1;
+            mc.CheckPaper= mc.CheckPaper-1;
+            mc.Cups= mc.Cups-1;
+            drink.Portion_Drink = drink.Portion_Drink-1;
+
+         // int d= drink.Price_Drink;
+            string x = $"Вартість = {drink.Price_Drink} \nРешта = {-price_Drink}  \nДата купівлі :{date}";
             MessageBox.Show(x, "chek") ;
+           // db.Update(drink);
+          //  db.Update(db.Components);
+            //db.Update(db.Drinks);
+            db.SaveChanges();
+            update_list_drink();
+            update_list_mc();
             // MessageBox.Show("Время вышло1");
             check.BackColor = Color.White;
             drink_1_button.BackColor = Color.White;
@@ -278,364 +700,39 @@ namespace lab_3
             drink_choice.BackColor = Color.Green;
             check_button.Enabled = false;
             check_button.Visible = false;
+
             tips.Text = "Виберіть свій напій";
             enabled_button();
         }
 
-        private void add_drink_button_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                //id_drink = int.Parse(drink_id.Text);
-                //name_drink = drink_name.Text;
-                //portion_drink = int.Parse(drink_portion.Text);
-                //price_drink = int.Parse(drink_price.Text);
-
-                //add_drink(id_drink, name_drink, portion_drink, price_drink);
-                if(drink_name.Text.Length!=0)
-                {
-                add_drink(int.Parse(drink_id.Text), drink_name.Text, int.Parse(drink_portion.Text), int.Parse(drink_price.Text));
-                }
-                else
-                {
-                    MessageBox.Show("Не правильно заповнені поля");
-                }
-            }
-            catch//(Exception)
-            {
-
-                //if(id_drink==default||name_drink==null||portion_drink==default || price_drink==default)
-                //{
-                //    MessageBox.Show("Не правильно заповнені поля");
-                //}              
-                if (drink_id.Text == default ||  drink_portion.Text == default || drink_price.Text == default)
-                {
-                    MessageBox.Show("Не правильно заповнені поля");
-                }
-            }
-        }
-
-        private void add_machine_componet_button_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                //id_mc = int.Parse(machine_componets_id.Text);
-                //check_paper_mc = int.Parse(check_paper.Text);
-                //cups_mc = int.Parse(cups.Text);
-                //sugar_mc = int.Parse(sugar.Text);
-                //add_mc(id_mc,check_paper_mc,cups_mc,sugar_mc);
-                add_mc(int.Parse(machine_componets_id.Text), int.Parse(check_paper.Text), int.Parse(cups.Text),
-                   int.Parse(sugar.Text));
-            }
-            catch//(Exception)
-            {
-                if(id_mc==default||check_paper_mc==default||cups_mc==default||sugar_mc==default)
-                {
-                    MessageBox.Show("Не правильно заповнені поля");
-                }
-
-            }
-        }
-
-        private void add_machine_button_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //id_machine=int.Parse(machine_id.Text);
-                //id_mc_ma = int.Parse(mc_ma_id.Text);
-                //id_drink_1_ma = int.Parse(drink_1_id.Text);
-                //id_drink_2_ma = int.Parse(drink_2_id.Text);
-                //id_drink_3_ma = int.Parse(drink_3_id.Text);
-                //id_drink_4_ma = int.Parse(drink_4_id.Text);
-                //   add_machine(id_machine,id_mc_ma,id_drink_1_ma,id_drink_2_ma,id_drink_3_ma,id_drink_4_ma);
-                if(int.Parse(drink_1_id.Text) == int.Parse(drink_2_id.Text) || int.Parse(drink_1_id.Text)== int.Parse(drink_3_id.Text)
-                    || int.Parse(drink_1_id.Text) == int.Parse(drink_4_id.Text)|| int.Parse(drink_2_id.Text)== int.Parse(drink_3_id.Text)
-                    || int.Parse(drink_2_id.Text) == int.Parse(drink_4_id.Text)|| int.Parse(drink_3_id.Text)== int.Parse(drink_4_id.Text))
-                {
-                    MessageBox.Show("Напої повині бути різні");
-                }
-                else
-                {
-                   add_machine(int.Parse(machine_id.Text), int.Parse(mc_ma_id.Text), int.Parse(drink_1_id.Text),
-                   int.Parse(drink_2_id.Text), int.Parse(drink_3_id.Text), int.Parse(drink_4_id.Text));
-                }
-            }
-            catch
-            {
-                if(id_machine==default||id_mc_ma==default||id_drink_1_ma==default||id_drink_2_ma==default||id_drink_3_ma==default||id_drink_4_ma==default)
-                {
-                    MessageBox.Show("Не правильно заповнені поля");
-                }
-            }
-
-        }
-
-        private void update_drink_Click(object sender, EventArgs e)
+        private void switch_ma_Click(object sender, EventArgs e)
         {
             using var db = new MachineContext();
             try
             {
-                id_drink = int.Parse(drink_id.Text);
-                try {
-
-                    var drink_id = db.Drinks;
-                    drink_id.Find(id_drink);
-
-
-                        if (drink_name.Text.Length == 0)
-                        {
-                            var drink_names = db.Drinks.Find(id_drink);
-                            name_drink = drink_names.Name_Drink;
-                        }
-                        else
-                        {
-                            name_drink = drink_name.Text;
-                        }
-
-                        try
-                        {
-                            portion_drink = int.Parse(drink_portion.Text);
-                        }
-                        catch
-                        {
-                            if (portion_drink == default)
-                            {
-                                var drink_portion = db.Drinks.Find(id_drink);
-                                portion_drink = drink_portion.Portion_Drink;
-                            }
-                        }
-
-                        try
-                        {
-                            price_drink = int.Parse(drink_price.Text);
-                        }
-                        catch
-                        {
-                            if (price_drink == default)
-                            {
-                                var drink_price = db.Drinks.Find(id_drink);
-                                price_drink = drink_price.Price_Drink;
-                            }
-                        }
-                        //   MessageBox.Show($"id_drink {id_drink} name_drink {name_drink} portion_drink {portion_drink}" +
-                        //          $"price_drink {price_drink}");
-                        update_drink(id_drink, name_drink, portion_drink, price_drink);
-                    }
-                catch
-                {
-                    MessageBox.Show($"Не має запису за таким ID :{id_drink}");
-                }
-            }
-            catch
-            {
-                if (id_drink == default)
-                {
-                    MessageBox.Show("Поле ID обов'язково має бути заповненим ");
-                }
-            }
-            
-            
-        }
-
-        public void update_drink(int id, string name, int portion, int price)
-        {
-
-                using var db = new MachineContext();
-                var drink = new Drink
-                {
-                    DrinkId = id,
-                    Name_Drink = name,
-                    Portion_Drink = portion,
-                    Price_Drink = price,
-                };
-                // db.Add(drink);
-                db.Update(drink);
-                db.SaveChanges();
-                update_list_drink();
-
-        }
-
-        private void update_mc_Click(object sender, EventArgs e)
-        {
-            using var db = new MachineContext();
-            try
-            {
-                id_mc = int.Parse(machine_componets_id.Text);
-                var mc_id = db.Components;
+                ma_num = int.Parse(num_ma.Text);  
                 try
-                {
-                    mc_id.Find(id_mc);
-
-                    try
-                    {
-                        check_paper_mc = int.Parse(check_paper.Text);
-                        //    MessageBox.Show("Поле ID обов'язково має бути заповненим ");
-                    }
-                    catch
-                    {
-                        if (check_paper_mc == default)
-                        {
-                            var mc_check_paper = db.Components.Find(id_mc);
-                            check_paper_mc = mc_check_paper.CheckPaper;
-                        }
-
-                    }
-                    try
-                    {
-                        cups_mc = int.Parse(cups.Text);
-
-                    }
-                    catch
-                    {
-                        if (cups_mc == default)
-                        {
-                            var mc_cups = db.Components.Find(id_mc);
-                            cups_mc = mc_cups.Cups;
-                        }
-
-
-                    }
-                    try
-                    {
-                        sugar_mc = int.Parse(sugar.Text);
-                     //   MessageBox.Show($"id_mc {id_mc} check_paper_mc  {check_paper_mc} cups {cups_mc}  sugar {sugar_mc}");
-                        update_mc(id_mc, check_paper_mc, cups_mc, sugar_mc);
-
-                    }
-                    catch
-                    {
-                        if (sugar_mc == default)
-                        {
-                            var mc_sugar = db.Components.Find(id_mc);
-                            sugar_mc = mc_sugar.Sugar;
-                        }
-                    //    MessageBox.Show($"id_mc {id_mc} check_paper_mc  {check_paper_mc} cups {cups_mc}  sugar {sugar_mc}");
-                        update_mc(id_mc, check_paper_mc, cups_mc, sugar_mc);
-
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show($"Не має запису за таким ID :{id_mc}");
-                }
+                 {
+                var ma = db.Machines.Find(int.Parse(num_ma.Text));
+                initiation_button(ma_num);
+                 }
+                 catch
+                 {
+                MessageBox.Show($"Не має апарату : {num_ma.Text}");
+                 }          
             }
-            catch//(Exception)
+            catch
             {
-
-                if (id_mc == default)
+                if(num_ma.Text.Length==0)
                 {
                     MessageBox.Show("Поле ID обов'язково має бути заповненим ");
-                    //    var drink_names = db.Drinks.Find(id_drink);
-                    //    name_drink = drink_names.Name_Drink;
-                    //  MessageBox.Show("Не правильно заповнені поля");
                 }
 
-                //  else
             }
-                    
-             //   }
-
-            //}
-        }
-
-        public void update_mc(int id, int check_paper, int cups, int sugar)
-        {
-
-                using var db = new MachineContext();
-                var mc = new Machine_component
-                {
-                    Machine_componentId = id,
-                    Sugar = sugar,
-                    CheckPaper = check_paper,
-                    Cups = cups,
-                };
-                db.Components.Find(mc.Machine_componentId);
-                db.Update(mc);
-                db.SaveChanges();
-                update_list_mc();
+            
            
-         
-        }
 
-        private void update_ma_Click(object sender, EventArgs e)
-        {
-            using var db = new MachineContext();
-           try
-            {
-                id_machine = int.Parse(machine_id.Text);
-                id_mc_ma = int.Parse(mc_ma_id.Text);
-                id_drink_1_ma = int.Parse(drink_1_id.Text);
-                id_drink_2_ma = int.Parse(drink_2_id.Text);
-                id_drink_3_ma = int.Parse(drink_3_id.Text);
-                id_drink_4_ma = int.Parse(drink_4_id.Text);
-                try
-                {
-                    
-                    //   MachineContext db = new MachineContext();
-
-                    var ma_id = db.Machines.Find(id_machine);
-                    if(ma_id.MachineId==default)
-                        MessageBox.Show($"ma_id {ma_id}");
-
-                    var mc_ma_id = db.Components.Find(id_mc_ma);
-                    if(mc_ma_id.Machine_componentId==default)
-                        MessageBox.Show($"mc_ma_id {mc_ma_id}");
-
-                    var drink_1_id = db.Drinks.Find(id_drink_1_ma);
-                    if(drink_1_id.DrinkId==default)
-                        MessageBox.Show($"drink_1_id {drink_1_id}");
-
-                    var drink_2_id = db.Drinks.Find(id_drink_2_ma);
-                    if (drink_2_id.DrinkId == default)
-                        MessageBox.Show($"drink_2_id {drink_2_id}");
-
-                    var drink_3_id = db.Drinks.Find(id_drink_3_ma);
-                    if (drink_3_id.DrinkId == default)
-                        MessageBox.Show($"drink_3_id {drink_3_id}");
-
-                    var drink_4_id = db.Drinks.Find(id_drink_4_ma);
-                    if (drink_4_id.DrinkId == default)
-                        MessageBox.Show($"drink_1_id {drink_4_id}");
-
-                    update_machine(id_machine, id_mc_ma, id_drink_1_ma, id_drink_2_ma, id_drink_3_ma, id_drink_4_ma);
-                }
-                catch
-                {
-                    MessageBox.Show($"Не має запису за такими ID :{id_machine} {id_mc_ma} {id_drink_1_ma}" +
-                        $" {id_drink_2_ma} {id_drink_3_ma} {id_drink_4_ma}");
-                }
-            }
-            catch
-            {
-                if (id_machine == default || id_mc_ma == default || id_drink_1_ma == default 
-                    || id_drink_2_ma == default || id_drink_3_ma == default || id_drink_4_ma == default)
-                {
-                    MessageBox.Show("Не правильно заповнені поля ");
-                }
-            }
-
-        }
-
-        public void update_machine(int id, int id_mc, int drink_1, int drink_2, int drink_3, int drink_4)
-        {
-            using var db = new MachineContext();
-                var ma = new Machine
-                {
-                    MachineId = id,
-                    Machine_components = id_mc,
-                    Drink_1 = drink_1,
-                    Drink_2 = drink_2,
-                    Drink_3 = drink_3,
-                    Drink_4 = drink_4,
-                }; 
-
-            db.Update(ma);
-            db.SaveChanges();
-            update_list_ma();
-
-        }
+        }     
 
         private void check_button_Click(object sender, EventArgs e)
         {
@@ -696,6 +793,7 @@ namespace lab_3
         {
 
         }
+
 
     }
 }

@@ -100,6 +100,12 @@
             this.update_drink_button = new System.Windows.Forms.Button();
             this.update_mc_button = new System.Windows.Forms.Button();
             this.update_ma_button = new System.Windows.Forms.Button();
+            this.del_drink = new System.Windows.Forms.Button();
+            this.del_mc = new System.Windows.Forms.Button();
+            this.del_ma = new System.Windows.Forms.Button();
+            this.num_ma_text = new System.Windows.Forms.Label();
+            this.num_ma = new System.Windows.Forms.TextBox();
+            this.switch_ma = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -765,11 +771,74 @@
             this.update_ma_button.UseVisualStyleBackColor = true;
             this.update_ma_button.Click += new System.EventHandler(this.update_ma_Click);
             // 
+            // del_drink
+            // 
+            this.del_drink.Location = new System.Drawing.Point(1673, 173);
+            this.del_drink.Name = "del_drink";
+            this.del_drink.Size = new System.Drawing.Size(113, 52);
+            this.del_drink.TabIndex = 74;
+            this.del_drink.Text = "видалити напій";
+            this.del_drink.UseVisualStyleBackColor = true;
+            this.del_drink.Click += new System.EventHandler(this.del_drink_Click);
+            // 
+            // del_mc
+            // 
+            this.del_mc.Location = new System.Drawing.Point(1673, 430);
+            this.del_mc.Name = "del_mc";
+            this.del_mc.Size = new System.Drawing.Size(113, 52);
+            this.del_mc.TabIndex = 75;
+            this.del_mc.Text = "видалити розхідники";
+            this.del_mc.UseVisualStyleBackColor = true;
+            this.del_mc.Click += new System.EventHandler(this.del_mc_Click);
+            // 
+            // del_ma
+            // 
+            this.del_ma.Location = new System.Drawing.Point(1673, 675);
+            this.del_ma.Name = "del_ma";
+            this.del_ma.Size = new System.Drawing.Size(113, 52);
+            this.del_ma.TabIndex = 76;
+            this.del_ma.Text = "видалити автомат";
+            this.del_ma.UseVisualStyleBackColor = true;
+            this.del_ma.Click += new System.EventHandler(this.del_ma_Click);
+            // 
+            // num_ma_text
+            // 
+            this.num_ma_text.AutoSize = true;
+            this.num_ma_text.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.num_ma_text.Location = new System.Drawing.Point(9, 12);
+            this.num_ma_text.Name = "num_ma_text";
+            this.num_ma_text.Size = new System.Drawing.Size(94, 35);
+            this.num_ma_text.TabIndex = 77;
+            this.num_ma_text.Text = "label17";
+            // 
+            // num_ma
+            // 
+            this.num_ma.Location = new System.Drawing.Point(29, 54);
+            this.num_ma.Name = "num_ma";
+            this.num_ma.Size = new System.Drawing.Size(49, 27);
+            this.num_ma.TabIndex = 78;
+            // 
+            // switch_ma
+            // 
+            this.switch_ma.Location = new System.Drawing.Point(9, 104);
+            this.switch_ma.Name = "switch_ma";
+            this.switch_ma.Size = new System.Drawing.Size(94, 52);
+            this.switch_ma.TabIndex = 79;
+            this.switch_ma.Text = "змінити апарат ";
+            this.switch_ma.UseVisualStyleBackColor = true;
+            this.switch_ma.Click += new System.EventHandler(this.switch_ma_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1819, 809);
+            this.Controls.Add(this.switch_ma);
+            this.Controls.Add(this.num_ma);
+            this.Controls.Add(this.num_ma_text);
+            this.Controls.Add(this.del_ma);
+            this.Controls.Add(this.del_mc);
+            this.Controls.Add(this.del_drink);
             this.Controls.Add(this.update_ma_button);
             this.Controls.Add(this.update_mc_button);
             this.Controls.Add(this.update_drink_button);
@@ -933,5 +1002,11 @@
         private Button update_drink_button;
         private Button update_mc_button;
         private Button update_ma_button;
+        private Button del_drink;
+        private Button del_mc;
+        private Button del_ma;
+        private Label num_ma_text;
+        private TextBox num_ma;
+        private Button switch_ma;
     }
 }
