@@ -80,7 +80,7 @@ namespace lab_3
             };
             db.Add(mc);
             db.SaveChanges();
-            update_list_ma();
+            update_list_mc();
         }
 
         public void add_machine(int id,int id_mc,int drink_1, int drink_2, int drink_3, int drink_4)
@@ -287,21 +287,32 @@ namespace lab_3
 
             try
             {
-                id_drink = int.Parse(drink_id.Text);
-                name_drink = drink_name.Text;
-                portion_drink = int.Parse(drink_portion.Text);
-                price_drink = int.Parse(drink_price.Text);
+                //id_drink = int.Parse(drink_id.Text);
+                //name_drink = drink_name.Text;
+                //portion_drink = int.Parse(drink_portion.Text);
+                //price_drink = int.Parse(drink_price.Text);
 
-                add_drink(id_drink, name_drink, portion_drink, price_drink);
+                //add_drink(id_drink, name_drink, portion_drink, price_drink);
+                if(drink_name.Text.Length!=0)
+                {
+                add_drink(int.Parse(drink_id.Text), drink_name.Text, int.Parse(drink_portion.Text), int.Parse(drink_price.Text));
+                }
+                else
+                {
+                    MessageBox.Show("Не правильно заповнені поля");
+                }
             }
             catch//(Exception)
             {
 
-                if(id_drink==default||name_drink==null||portion_drink==default || price_drink==default)
+                //if(id_drink==default||name_drink==null||portion_drink==default || price_drink==default)
+                //{
+                //    MessageBox.Show("Не правильно заповнені поля");
+                //}              
+                if (drink_id.Text == default ||  drink_portion.Text == default || drink_price.Text == default)
                 {
                     MessageBox.Show("Не правильно заповнені поля");
-                }              
-
+                }
             }
         }
 
@@ -310,12 +321,13 @@ namespace lab_3
 
             try
             {
-                id_mc = int.Parse(machine_componets_id.Text);
-                check_paper_mc = int.Parse(check_paper.Text);
-                cups_mc = int.Parse(cups.Text);
-                sugar_mc = int.Parse(sugar.Text);
-                add_mc(id_mc,check_paper_mc,cups_mc,sugar_mc);
-
+                //id_mc = int.Parse(machine_componets_id.Text);
+                //check_paper_mc = int.Parse(check_paper.Text);
+                //cups_mc = int.Parse(cups.Text);
+                //sugar_mc = int.Parse(sugar.Text);
+                //add_mc(id_mc,check_paper_mc,cups_mc,sugar_mc);
+                add_mc(int.Parse(machine_componets_id.Text), int.Parse(check_paper.Text), int.Parse(cups.Text),
+                   int.Parse(sugar.Text));
             }
             catch//(Exception)
             {
@@ -331,13 +343,24 @@ namespace lab_3
         {
             try
             {
-                id_machine=int.Parse(machine_id.Text);
-                id_mc_ma = int.Parse(mc_ma_id.Text);
-                id_drink_1_ma = int.Parse(drink_1_id.Text);
-                id_drink_2_ma = int.Parse(drink_2_id.Text);
-                id_drink_3_ma = int.Parse(drink_3_id.Text);
-                id_drink_4_ma = int.Parse(drink_4_id.Text);
-                add_machine(id_machine,id_mc_ma,id_drink_1_ma,id_drink_2_ma,id_drink_3_ma,id_drink_4_ma);
+                //id_machine=int.Parse(machine_id.Text);
+                //id_mc_ma = int.Parse(mc_ma_id.Text);
+                //id_drink_1_ma = int.Parse(drink_1_id.Text);
+                //id_drink_2_ma = int.Parse(drink_2_id.Text);
+                //id_drink_3_ma = int.Parse(drink_3_id.Text);
+                //id_drink_4_ma = int.Parse(drink_4_id.Text);
+                //   add_machine(id_machine,id_mc_ma,id_drink_1_ma,id_drink_2_ma,id_drink_3_ma,id_drink_4_ma);
+                if(int.Parse(drink_1_id.Text) == int.Parse(drink_2_id.Text) || int.Parse(drink_1_id.Text)== int.Parse(drink_3_id.Text)
+                    || int.Parse(drink_1_id.Text) == int.Parse(drink_4_id.Text)|| int.Parse(drink_2_id.Text)== int.Parse(drink_3_id.Text)
+                    || int.Parse(drink_2_id.Text) == int.Parse(drink_4_id.Text)|| int.Parse(drink_3_id.Text)== int.Parse(drink_4_id.Text))
+                {
+                    MessageBox.Show("Напої повині бути різні");
+                }
+                else
+                {
+                   add_machine(int.Parse(machine_id.Text), int.Parse(mc_ma_id.Text), int.Parse(drink_1_id.Text),
+                   int.Parse(drink_2_id.Text), int.Parse(drink_3_id.Text), int.Parse(drink_4_id.Text));
+                }
             }
             catch
             {
