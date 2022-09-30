@@ -147,16 +147,6 @@ namespace lab_3
 
         }
 
-        private void drink_3_button_Click(object sender, EventArgs e)
-        {
-            //  price_drink = price_tea;
-            write_price(price_tea);
-            drink_3_button.BackColor = Color.Green;
-            totalTime = tea_time;
-            enabled_button();
-            pay(0);
-        }
-
         private void drink_2_button_Click(object sender, EventArgs e)
         {
             // price_drink = price_cacao;
@@ -168,6 +158,16 @@ namespace lab_3
 
         }
 
+        private void drink_3_button_Click(object sender, EventArgs e)
+        {
+            //  price_drink = price_tea;
+            write_price(price_tea);
+            drink_3_button.BackColor = Color.Green;
+            totalTime = tea_time;
+            enabled_button();
+            pay(0);
+        }
+        
         private void drink_4_button_Click(object sender, EventArgs e)
         {
             //  price_drink = price_chocolate;
