@@ -43,10 +43,6 @@
             this.grn_10 = new System.Windows.Forms.Button();
             this.grn_20 = new System.Windows.Forms.Button();
             this.grn_50 = new System.Windows.Forms.Button();
-            this.grn_100 = new System.Windows.Forms.Button();
-            this.grn_200 = new System.Windows.Forms.Button();
-            this.grn_500 = new System.Windows.Forms.Button();
-            this.grn_1000 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tips = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -55,7 +51,6 @@
             this.check = new System.Windows.Forms.PictureBox();
             this.drink = new System.Windows.Forms.PictureBox();
             this.drink_choice = new System.Windows.Forms.PictureBox();
-            this.card = new System.Windows.Forms.Button();
             this.cup = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.drink_to_cup = new System.Windows.Forms.PictureBox();
@@ -103,9 +98,8 @@
             this.del_drink = new System.Windows.Forms.Button();
             this.del_mc = new System.Windows.Forms.Button();
             this.del_ma = new System.Windows.Forms.Button();
-            this.num_ma_text = new System.Windows.Forms.Label();
-            this.num_ma = new System.Windows.Forms.TextBox();
-            this.switch_ma = new System.Windows.Forms.Button();
+            this.cancell = new System.Windows.Forms.Button();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -120,6 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drink_to_cup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.check_button)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -196,9 +191,9 @@
             this.grn_1.Enabled = false;
             this.grn_1.Location = new System.Drawing.Point(840, 39);
             this.grn_1.Name = "grn_1";
-            this.grn_1.Size = new System.Drawing.Size(94, 29);
+            this.grn_1.Size = new System.Drawing.Size(110, 29);
             this.grn_1.TabIndex = 9;
-            this.grn_1.Text = "button1";
+            this.grn_1.Text = "1 гривня";
             this.grn_1.UseVisualStyleBackColor = true;
             this.grn_1.Click += new System.EventHandler(this.grn_1_Click);
             // 
@@ -207,9 +202,9 @@
             this.grn_2.Enabled = false;
             this.grn_2.Location = new System.Drawing.Point(840, 95);
             this.grn_2.Name = "grn_2";
-            this.grn_2.Size = new System.Drawing.Size(94, 29);
+            this.grn_2.Size = new System.Drawing.Size(110, 29);
             this.grn_2.TabIndex = 10;
-            this.grn_2.Text = "button2";
+            this.grn_2.Text = "2 гривні";
             this.grn_2.UseVisualStyleBackColor = true;
             this.grn_2.Click += new System.EventHandler(this.grn_2_Click);
             // 
@@ -218,9 +213,9 @@
             this.grn_5.Enabled = false;
             this.grn_5.Location = new System.Drawing.Point(840, 144);
             this.grn_5.Name = "grn_5";
-            this.grn_5.Size = new System.Drawing.Size(94, 29);
+            this.grn_5.Size = new System.Drawing.Size(110, 29);
             this.grn_5.TabIndex = 11;
-            this.grn_5.Text = "button3";
+            this.grn_5.Text = "5 гривень";
             this.grn_5.UseVisualStyleBackColor = true;
             this.grn_5.Click += new System.EventHandler(this.grn_5_Click);
             // 
@@ -229,9 +224,9 @@
             this.grn_10.Enabled = false;
             this.grn_10.Location = new System.Drawing.Point(840, 196);
             this.grn_10.Name = "grn_10";
-            this.grn_10.Size = new System.Drawing.Size(94, 29);
+            this.grn_10.Size = new System.Drawing.Size(110, 29);
             this.grn_10.TabIndex = 12;
-            this.grn_10.Text = "button4";
+            this.grn_10.Text = "10 гривень";
             this.grn_10.UseVisualStyleBackColor = true;
             this.grn_10.Click += new System.EventHandler(this.grn_10_Click);
             // 
@@ -240,9 +235,9 @@
             this.grn_20.Enabled = false;
             this.grn_20.Location = new System.Drawing.Point(840, 244);
             this.grn_20.Name = "grn_20";
-            this.grn_20.Size = new System.Drawing.Size(94, 29);
+            this.grn_20.Size = new System.Drawing.Size(110, 29);
             this.grn_20.TabIndex = 13;
-            this.grn_20.Text = "button5";
+            this.grn_20.Text = "20 гривень";
             this.grn_20.UseVisualStyleBackColor = true;
             this.grn_20.Click += new System.EventHandler(this.grn_20_Click);
             // 
@@ -251,55 +246,11 @@
             this.grn_50.Enabled = false;
             this.grn_50.Location = new System.Drawing.Point(840, 291);
             this.grn_50.Name = "grn_50";
-            this.grn_50.Size = new System.Drawing.Size(94, 29);
+            this.grn_50.Size = new System.Drawing.Size(110, 29);
             this.grn_50.TabIndex = 14;
-            this.grn_50.Text = "button6";
+            this.grn_50.Text = "50 гривень";
             this.grn_50.UseVisualStyleBackColor = true;
             this.grn_50.Click += new System.EventHandler(this.grn_50_Click);
-            // 
-            // grn_100
-            // 
-            this.grn_100.Enabled = false;
-            this.grn_100.Location = new System.Drawing.Point(840, 340);
-            this.grn_100.Name = "grn_100";
-            this.grn_100.Size = new System.Drawing.Size(94, 29);
-            this.grn_100.TabIndex = 15;
-            this.grn_100.Text = "button7";
-            this.grn_100.UseVisualStyleBackColor = true;
-            this.grn_100.Click += new System.EventHandler(this.grn_100_Click);
-            // 
-            // grn_200
-            // 
-            this.grn_200.Enabled = false;
-            this.grn_200.Location = new System.Drawing.Point(840, 386);
-            this.grn_200.Name = "grn_200";
-            this.grn_200.Size = new System.Drawing.Size(94, 29);
-            this.grn_200.TabIndex = 16;
-            this.grn_200.Text = "button8";
-            this.grn_200.UseVisualStyleBackColor = true;
-            this.grn_200.Click += new System.EventHandler(this.grn_200_Click);
-            // 
-            // grn_500
-            // 
-            this.grn_500.Enabled = false;
-            this.grn_500.Location = new System.Drawing.Point(840, 430);
-            this.grn_500.Name = "grn_500";
-            this.grn_500.Size = new System.Drawing.Size(94, 29);
-            this.grn_500.TabIndex = 17;
-            this.grn_500.Text = "button9";
-            this.grn_500.UseVisualStyleBackColor = true;
-            this.grn_500.Click += new System.EventHandler(this.grn_500_Click);
-            // 
-            // grn_1000
-            // 
-            this.grn_1000.Enabled = false;
-            this.grn_1000.Location = new System.Drawing.Point(840, 475);
-            this.grn_1000.Name = "grn_1000";
-            this.grn_1000.Size = new System.Drawing.Size(94, 29);
-            this.grn_1000.TabIndex = 18;
-            this.grn_1000.Text = "button10";
-            this.grn_1000.UseVisualStyleBackColor = true;
-            this.grn_1000.Click += new System.EventHandler(this.grn_1000_Click);
             // 
             // pictureBox4
             // 
@@ -378,17 +329,6 @@
             this.drink_choice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.drink_choice.TabIndex = 26;
             this.drink_choice.TabStop = false;
-            // 
-            // card
-            // 
-            this.card.Enabled = false;
-            this.card.Location = new System.Drawing.Point(840, 519);
-            this.card.Name = "card";
-            this.card.Size = new System.Drawing.Size(94, 29);
-            this.card.TabIndex = 27;
-            this.card.Text = "button1";
-            this.card.UseVisualStyleBackColor = true;
-            this.card.Click += new System.EventHandler(this.card_Click);
             // 
             // cup
             // 
@@ -801,41 +741,33 @@
             this.del_ma.UseVisualStyleBackColor = true;
             this.del_ma.Click += new System.EventHandler(this.del_ma_Click);
             // 
-            // num_ma_text
+            // cancell
             // 
-            this.num_ma_text.AutoSize = true;
-            this.num_ma_text.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.num_ma_text.Location = new System.Drawing.Point(9, 12);
-            this.num_ma_text.Name = "num_ma_text";
-            this.num_ma_text.Size = new System.Drawing.Size(94, 35);
-            this.num_ma_text.TabIndex = 77;
-            this.num_ma_text.Text = "label17";
+            this.cancell.Location = new System.Drawing.Point(657, 266);
+            this.cancell.Name = "cancell";
+            this.cancell.Size = new System.Drawing.Size(94, 52);
+            this.cancell.TabIndex = 80;
+            this.cancell.Text = "скасувати свій вибір";
+            this.cancell.UseVisualStyleBackColor = true;
+            this.cancell.Click += new System.EventHandler(this.cancell_Click);
             // 
-            // num_ma
+            // pictureBox7
             // 
-            this.num_ma.Location = new System.Drawing.Point(29, 54);
-            this.num_ma.Name = "num_ma";
-            this.num_ma.Size = new System.Drawing.Size(49, 27);
-            this.num_ma.TabIndex = 78;
-            // 
-            // switch_ma
-            // 
-            this.switch_ma.Location = new System.Drawing.Point(9, 104);
-            this.switch_ma.Name = "switch_ma";
-            this.switch_ma.Size = new System.Drawing.Size(94, 52);
-            this.switch_ma.TabIndex = 79;
-            this.switch_ma.Text = "змінити апарат ";
-            this.switch_ma.UseVisualStyleBackColor = true;
-            this.switch_ma.Click += new System.EventHandler(this.switch_ma_Click);
+            this.pictureBox7.BackColor = System.Drawing.Color.White;
+            this.pictureBox7.Location = new System.Drawing.Point(815, 675);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(41, 37);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 81;
+            this.pictureBox7.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1819, 809);
-            this.Controls.Add(this.switch_ma);
-            this.Controls.Add(this.num_ma);
-            this.Controls.Add(this.num_ma_text);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.cancell);
             this.Controls.Add(this.del_ma);
             this.Controls.Add(this.del_mc);
             this.Controls.Add(this.del_drink);
@@ -882,7 +814,6 @@
             this.Controls.Add(this.drink_to_cup);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.cup);
-            this.Controls.Add(this.card);
             this.Controls.Add(this.drink_choice);
             this.Controls.Add(this.drink);
             this.Controls.Add(this.check);
@@ -891,10 +822,6 @@
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.tips);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.grn_1000);
-            this.Controls.Add(this.grn_500);
-            this.Controls.Add(this.grn_200);
-            this.Controls.Add(this.grn_100);
             this.Controls.Add(this.grn_50);
             this.Controls.Add(this.grn_20);
             this.Controls.Add(this.grn_10);
@@ -925,6 +852,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drink_to_cup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.check_button)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -945,10 +873,6 @@
         private Button grn_10;
         private Button grn_20;
         private Button grn_50;
-        private Button grn_100;
-        private Button grn_200;
-        private Button grn_500;
-        private Button grn_1000;
         private PictureBox pictureBox4;
         private Label tips;
         private PictureBox pictureBox5;
@@ -957,7 +881,6 @@
         private PictureBox check;
         private PictureBox drink;
         private PictureBox drink_choice;
-        private Button card;
         private PictureBox cup;
         private PictureBox pictureBox8;
         private PictureBox drink_to_cup;
@@ -1005,8 +928,7 @@
         private Button del_drink;
         private Button del_mc;
         private Button del_ma;
-        private Label num_ma_text;
-        private TextBox num_ma;
-        private Button switch_ma;
+        private Button cancell;
+        private PictureBox pictureBox7;
     }
 }
