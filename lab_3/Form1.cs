@@ -21,9 +21,9 @@ namespace lab_3
             
             drink_choice.BackColor = Color.Green;
             using var db = new MachineContext(); 
-             update_list_drink();
-             update_list_mc();
-             update_list_ma();
+         //    update_list_drink();
+         //    update_list_mc();
+         //    update_list_ma();
             initiation_button();
           //  num_ma_text.Text = ma_num.ToString();           
         }
@@ -264,8 +264,8 @@ namespace lab_3
             string x = $"Вартість = {drink.Price_Drink} \nРешта = {-price_Drink}  \nДата купівлі :{date}";
             MessageBox.Show(x, "chek") ;
             db.SaveChanges();
-            update_list_drink();
-            update_list_mc();
+            //update_list_drink();
+            //update_list_mc();
             drink_button_on();
             check.BackColor = Color.White;
             drink_choice.BackColor = Color.Green;
@@ -332,5 +332,42 @@ namespace lab_3
             var form = new Form2();
             form.Show(this);
         }
+        /*
+        public void update_list_drink()
+        {
+            drinks_list.Items.Clear();
+            using var db = new MachineContext();
+            foreach (var item in db.Drinks)
+            {
+                drinks_list.Items.Add(item.DrinkId + " " + item.Name_Drink
+                    + " " + item.Portion_Drink + " " + item.Price_Drink);
+            }
+        }
+
+        public void update_list_mc()
+        {
+            mc_list.Items.Clear();
+            using var db = new MachineContext();
+            foreach (var item in db.Components)
+            {
+                mc_list.Items.Add(item.Machine_componentId + " " + item.CheckPaper
+                    + " " + item.Cups + " " + item.Sugar);
+            }
+        }
+
+        public void update_list_ma()
+        {
+            ma_list.Items.Clear();
+            using var db = new MachineContext();
+
+            foreach (var item in db.Machines)
+            {
+                ma_list.Items.Add(item.MachineId + " " + item.Machine_components + " " + item.Drink_1
+                    + " " + item.Drink_2 + " " + item.Drink_3 + " " + item.Drink_4);
+            }
+
+
+        }
+        */
     }
 }
